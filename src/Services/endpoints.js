@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const WEB_SERVER = 'http://localhost:8000';
+const WEB_SERVER = window.location.hostname;
 
 const routes = {
     libraryList: WEB_SERVER + '/collections/library/list',
