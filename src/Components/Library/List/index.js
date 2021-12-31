@@ -4,15 +4,11 @@ import { getLibraryList } from '../../../Services/endpoints.js';
 export default class LibraryList extends React.Component {
     constructor(props) {
         super(props);
-    
-        this.state = {
-            items: [{ _id: 1, Title: "Test", Composer: "Tester" }]
-        }
+
+        this.state = {}
     }
 
-    componentDidMount(){
-      this.getList();
-    }
+    componentDidMount(){ }
 
     async getList() {
         let data = await getLibraryList();
@@ -20,11 +16,19 @@ export default class LibraryList extends React.Component {
      }
 
     render() {
-        let data = this.state.items;
+        let data = this.props.items ?? [];
         
         return (
         <div>
-            { data.length && data.map( o => <div key={ o._id }><p><span data-id={ o._id } onClick={ this.props.onItemClick }>{ o.Title }</span> | <span>{ o.Composer }</span></p></div> ) }
+            { data.length ? 
+                data.map( o => <p key={ o._id } >
+                        <span data-id={ o._id } onClick={ this.props.onItemClick } className='library-item'>
+                            <b className='noclick'>{ o.Title }</b> <i className='noclick'>by { o.Composer }</i>
+                        </span>
+                    </p>
+                ) :
+                (<p>no results</p>)
+             }
         </div>
         );
     }

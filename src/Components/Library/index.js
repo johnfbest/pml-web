@@ -6,6 +6,7 @@ import LibraryItem from './Item'
 export default class Library extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.state = { showList: true, currentItem: 0 }
   }
@@ -28,7 +29,7 @@ export default class Library extends React.Component {
 
   render() {
     return this.state.showList ? 
-        (<LibraryList onItemClick={ this.onItemClick.bind(this) }/>) :
+        (<LibraryList items={ this.props.items } onItemClick={ this.onItemClick.bind(this) }/>) :
         (<LibraryItem id={ this.state.currentItem } onBackClicked={ this.onBackClicked.bind(this) }/>);
-  }
+    }
 }

@@ -1,6 +1,9 @@
 import './App.css';
 
-import Library from './Components/Library'
+import Menu from './Components/Menu';
+import Search from './Components/Search';
+import Browse from './Components/Browse';
+import About from './Components/About';
 
 function App() {
   return (
@@ -8,7 +11,17 @@ function App() {
       <header className="App-header">
         <p>PML Library</p>
       </header>
-      <Library />
+      <Menu>
+        <div label="Collection">
+          <Search />
+        </div>
+        <div label="Browse">
+          <Browse />
+        </div>
+        <div label="About">
+          <About />
+        </div>
+      </Menu>
     </div>
   );
 }
