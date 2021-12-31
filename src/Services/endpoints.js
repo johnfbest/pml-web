@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const WEB_SERVER = window.location.hostname;
+const WEB_SERVER = '';
 
 const routes = {
     libraryList: WEB_SERVER + '/collections/library/list',
